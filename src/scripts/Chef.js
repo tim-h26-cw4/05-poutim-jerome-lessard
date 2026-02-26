@@ -14,10 +14,26 @@ export default class Chef {
       const poutine = poutines[i];
       const instance = new Poutine(poutine);
       this.menu.push(instance);
-
-      this.element.addEventListener('click', this.sendOrder.bind(this));
     }
+    const btnValidate = this.element.querySelector('.js-submit');
+    btnValidate.addEventListener('click', this.sendOrder.bind(this));
   }
 
-  sendOrder() {}
+  sendOrder() {
+    this.container.innerHTML = '';
+
+    let numPoutine = 0;
+
+    for (let i = 0; i < this.menu.length; i++) {
+      const poutine = this.menu[i];
+
+      if (poutine.isActive == true) {
+        numPoutine++;
+      }
+    }
+
+    const p = document.createElement('p');
+    p.innerText = `Nombre total de poutine(s) : ${numPoutine}`;
+    this.container.appendChild(p);
+  }
 }
