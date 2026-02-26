@@ -14,6 +14,10 @@ export default class Chef {
       const poutine = poutines[i];
       const instance = new Poutine(poutine);
       this.menu.push(instance);
+
+      this.element.addEventListener('click', this.sendOrder.bind(this));
     }
   }
+
+  sendOrder() {}
 }
