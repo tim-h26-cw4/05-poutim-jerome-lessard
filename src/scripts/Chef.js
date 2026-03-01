@@ -4,7 +4,7 @@ export default class Chef {
   constructor(element) {
     this.element = element;
     this.menu = [];
-    this.container = document.querySelector('.js-container');
+    this.container = element.querySelector('.js-container');
     this.init();
   }
 
@@ -26,11 +26,13 @@ export default class Chef {
 
     for (let i = 0; i < this.menu.length; i++) {
       const poutine = this.menu[i];
-
+      console.log(poutine);
       if (poutine.isActive == true) {
         numPoutine++;
+        
       }
     }
+    
 
     const p = document.createElement('p');
     p.innerText = `Nombre total de poutine(s) : ${numPoutine}`;

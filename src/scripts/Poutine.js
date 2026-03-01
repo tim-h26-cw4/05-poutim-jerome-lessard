@@ -19,7 +19,7 @@ export default class Poutine {
       type.classList.remove('is-active');
     }
     event.currentTarget.classList.add('is-active');
-    this.isActive = !this.isActive;
+    this.isActive = true
     this.selectedType = event.currentTarget.innerText;
     this.updatePhoto();
   }
