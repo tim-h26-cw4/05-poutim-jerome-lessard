@@ -10,7 +10,6 @@ export default class Poutine {
     for (let i = 0; i < this.types.length; i++) {
       const type = this.types[i];
       type.addEventListener('click', this.selectType.bind(this));
-      type.addEventListener('click', this.unselectType.bind(this));
       
     }
   }
@@ -20,17 +19,9 @@ export default class Poutine {
       const type = this.types[i];
       type.classList.remove('is-active');
     }
-    event.currentTarget.classList.toggle('is-active');
+    event.currentTarget.classList.add('is-active');
     this.isActive = true
     this.selectedType = event.currentTarget.innerText;
-
-    this.updatePhoto();
-  }
-
-  unselectType(event){
-    event.currentTarget.classList.remove('is-active');
-    this.isActive = false
-    this.selectedType = '';
 
     this.updatePhoto();
   }
